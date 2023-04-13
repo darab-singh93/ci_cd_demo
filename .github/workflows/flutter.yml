@@ -1,0 +1,35 @@
+name: CI/CD for Flutter project
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v1
+      with:
+        channel: 'stable'
+      
+    - name: Install dependencies
+      run: flutter pub get
+      
+    - name: Build for Android
+      run: flutter build apk
+      
+    - name: Run tests
+      run: flutter test
+      
+    # - name: Deploy to Google Play Store
+    #   uses: wzieba/gradle-play-publisher-action@v1.2.2
+    #   with:
+    #     track: 'alpha'
+    #     release-status: 'draft'
+    #     package-name: 'com.example.myapp'
+    #     service-account-json: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT }}
+    #     apk: './build/app/outputs/flutter-apk/app-release.apk'
