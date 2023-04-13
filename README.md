@@ -1,6 +1,6 @@
 # ci_cd_demo
 
-A new Flutter project.
+A new Flutter project to implement CI and CD pipeline integration.
 
 ## Getting Started
 
