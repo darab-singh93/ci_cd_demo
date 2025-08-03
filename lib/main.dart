@@ -4,6 +4,8 @@ void main() {
   runApp(const MyApp());
 }
 
+// Release build for me 04/08/2025
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
